@@ -1,0 +1,31 @@
+{
+    "id": "6AA15A68",
+    "path": "~/Downloads/Basic_DL/Handon1.qmd",
+    "project_path": "Handon1.qmd",
+    "type": "quarto_markdown",
+    "hash": "1589061803",
+    "contents": "",
+    "dirty": false,
+    "created": 1717508582652.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "122,12",
+        "scrollLine": "112",
+        "rmdVisualModeLocation": "2:0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1717509552,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1717509552505,
+    "read_only": false,
+    "read_only_alternatives": []
+}
