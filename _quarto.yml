@@ -17,14 +17,14 @@ website:
         text: DL-detail        
       - href: tensor_playground.qmd
         text: Playground
-      #- href: Handon1.qmd
-      #  text: Hand on 1
-      #- href: Handon2.qmd
-      #  text: Hand on 2
-      #- href: Handon3.qmd
-      #  text: Hand on 3        
-      #- href: Handon4.qmd
-      #  text: Hand on 4      
+      - href: Handon1.qmd
+        text: Hand on 1
+      - href: Handon2.qmd
+        text: Hand on 2
+      - href: Handon3.qmd
+        text: Hand on 3        
+      - href: Handon4.qmd
+        text: Hand on 4      
 
 format:
   html:
