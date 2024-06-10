@@ -5,7 +5,7 @@ website:
   title: "basic-DL"
   navbar:
     left:
-      - href: index1.qmd
+      - href: index.qmd
         text: Home
       - href: DL-intro.qmd
         text: DL-Intro
