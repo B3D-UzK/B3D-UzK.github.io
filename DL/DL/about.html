@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>basic-DL - test_gh_action</title>
+<title>basic-DL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,59 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -112,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">basic-DL</span>
     </a>
   </div>
@@ -123,27 +89,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index1.html"> 
+    <a class="nav-link" href="../../index1.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./DL-intro.html"> 
+    <a class="nav-link" href="../../DL-intro.html"> 
 <span class="menu-text">DL-Intro</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">Aplications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./intro_pytorch.html"> 
+    <a class="nav-link" href="../../intro_pytorch.html"> 
 <span class="menu-text">Intro Pytorch</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./DL-detail.html"> 
+    <a class="nav-link" href="../../DL-detail.html"> 
 <span class="menu-text">DL-detail</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./tensor_playground.html"> 
+    <a class="nav-link" href="../../tensor_playground.html"> 
 <span class="menu-text">Playground</span></a>
   </li>  
 </ul>
@@ -158,39 +124,121 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#observation-of-interstellar-medium-ism-and-molecular-clouds" id="toc-observation-of-interstellar-medium-ism-and-molecular-clouds" class="nav-link active" data-scroll-target="#observation-of-interstellar-medium-ism-and-molecular-clouds">1. Observation of Interstellar Medium (ISM) and Molecular Clouds</a></li>
+  <li><a href="#high-mass-star-formation" id="toc-high-mass-star-formation" class="nav-link" data-scroll-target="#high-mass-star-formation">2. High-Mass Star Formation</a></li>
+  <li><a href="#simulation-of-high-mass-star-formation" id="toc-simulation-of-high-mass-star-formation" class="nav-link" data-scroll-target="#simulation-of-high-mass-star-formation">3. Simulation of High-Mass Star Formation</a></li>
+  <li><a href="#astrochemistry" id="toc-astrochemistry" class="nav-link" data-scroll-target="#astrochemistry">4. Astrochemistry</a></li>
+  <li><a href="#stellar-feedback" id="toc-stellar-feedback" class="nav-link" data-scroll-target="#stellar-feedback">5. Stellar Feedback</a></li>
+  <li><a href="#galaxy-formation" id="toc-galaxy-formation" class="nav-link" data-scroll-target="#galaxy-formation">6. Galaxy Formation</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">test_gh_action</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
+<section id="observation-of-interstellar-medium-ism-and-molecular-clouds" class="level3">
+<h3 class="anchored" data-anchor-id="observation-of-interstellar-medium-ism-and-molecular-clouds">1. Observation of Interstellar Medium (ISM) and Molecular Clouds</h3>
+<ul>
+<li><strong>Data Reduction and Noise Filtering</strong>: ML algorithms enhance observational data quality by reducing noise and improving the signal-to-noise ratio in data from radio, infrared, and optical telescopes.
+<ul>
+<li><strong>Reference</strong>: Samuel, H. S., Etim, E. E., Shinggu, J. P., &amp; Bako, B. (2023). Machine learning of Rotational spectra analysis in interstellar medium. <em>Communication in Physical Sciences</em>, 10(1), 172-203. [3]</li>
+</ul></li>
+<li><strong>Feature Extraction</strong>: DL models, such as convolutional neural networks (CNNs), identify and classify structures within the ISM and molecular clouds, such as filaments and cores.
+<ul>
+<li><strong>Reference</strong>: Samuel, H. S., Etim, E. E., Shinggu, J. P., &amp; Bako, B. (2023). Machine learning of Rotational spectra analysis in interstellar medium. <em>Communication in Physical Sciences</em>, 10(1), 172-203. [3]</li>
+</ul></li>
+<li><strong>Anomaly Detection</strong>: ML techniques detect unusual features or events within the ISM, potentially indicating new astrophysical phenomena.
+<ul>
+<li><strong>Reference</strong>: Samuel, H. S., Etim, E. E., Shinggu, J. P., &amp; Bako, B. (2023). Machine learning of Rotational spectra analysis in interstellar medium. <em>Communication in Physical Sciences</em>, 10(1), 172-203. [3]</li>
+</ul></li>
+</ul>
+</section>
+<section id="high-mass-star-formation" class="level3">
+<h3 class="anchored" data-anchor-id="high-mass-star-formation">2. High-Mass Star Formation</h3>
+<ul>
+<li><strong>Data Analysis</strong>: ML models analyze large datasets from observatories to identify regions of high-mass star formation by detecting specific spectral lines and emission features.
+<ul>
+<li><strong>Reference</strong>: Surana, S., Wadadekar, Y., Bait, O., &amp; Bhosale, H. (2020). Predicting star formation properties of galaxies using deep learning. <em>Monthly Notices of the Royal Astronomical Society</em>, 493(4), 4808-4815. [2]</li>
+</ul></li>
+<li><strong>Pattern Recognition</strong>: DL algorithms identify patterns and correlations in the spatial and temporal distribution of high-mass star-forming regions, helping to understand the underlying physical processes.
+<ul>
+<li><strong>Reference</strong>: Surana, S., Wadadekar, Y., Bait, O., &amp; Bhosale, H. (2020). Predicting star formation properties of galaxies using deep learning. <em>Monthly Notices of the Royal Astronomical Society</em>, 493(4), 4808-4815. [2]</li>
+</ul></li>
+<li><strong>Predictive Modeling</strong>: ML models predict the future evolution of star-forming regions based on current observations.
+<ul>
+<li><strong>Reference</strong>: Surana, S., Wadadekar, Y., Bait, O., &amp; Bhosale, H. (2020). Predicting star formation properties of galaxies using deep learning. <em>Monthly Notices of the Royal Astronomical Society</em>, 493(4), 4808-4815. [2]</li>
+</ul></li>
+</ul>
+</section>
+<section id="simulation-of-high-mass-star-formation" class="level3">
+<h3 class="anchored" data-anchor-id="simulation-of-high-mass-star-formation">3. Simulation of High-Mass Star Formation</h3>
+<ul>
+<li><strong>Accelerated Simulations</strong>: ML techniques, such as generative adversarial networks (GANs), enhance the efficiency of high-mass star formation simulations by generating high-fidelity results from lower-resolution inputs.
+<ul>
+<li><strong>Reference</strong>: Bonjean, V., Aghanim, N., Salomé, P., Beelen, A., Douspis, M., &amp; Soubrié, E. (2019). Star formation rates and stellar masses from machine learning. <em>Astronomy &amp; Astrophysics</em>, 621, A51. [5]</li>
+</ul></li>
+<li><strong>Parameter Space Exploration</strong>: ML models explore the vast parameter space of star formation simulations to identify optimal conditions and initial configurations for high-mass star formation.
+<ul>
+<li><strong>Reference</strong>: Bonjean, V., Aghanim, N., Salomé, P., Beelen, A., Douspis, M., &amp; Soubrié, E. (2019). Star formation rates and stellar masses from machine learning. <em>Astronomy &amp; Astrophysics</em>, 621, A51. [5]</li>
+</ul></li>
+</ul>
+</section>
+<section id="astrochemistry" class="level3">
+<h3 class="anchored" data-anchor-id="astrochemistry">4. Astrochemistry</h3>
+<ul>
+<li><strong>Chemical Abundance Mapping</strong>: ML models analyze spectral data to map the distribution of various molecules within molecular clouds and other astrophysical environments.
+<ul>
+<li><strong>Reference</strong>: Xue, B.-X., Barbatti, M., &amp; Dral, P. (2020). Machine learning for absorption cross sections. <em>Journal of Physical Chemistry A</em>, 124(35), 7199-7210. [4]</li>
+</ul></li>
+<li><strong>Reaction Network Analysis</strong>: DL helps in understanding complex chemical networks by identifying key reactions and pathways in the formation and destruction of molecules in space.
+<ul>
+<li><strong>Reference</strong>: Villadsen, T., Ligterink, N. F. W., &amp; Andersen, M. (2022). Predicting binding energies of astrochemically relevant molecules via machine learning. <em>Astronomy &amp; Astrophysics</em>, 666, A45. [4]</li>
+</ul></li>
+<li><strong>Anomaly Detection</strong>: ML algorithms identify unusual chemical compositions or rare molecules, providing insights into unique astrochemical processes.
+<ul>
+<li><strong>Reference</strong>: Lee, K. L. K., Patterson, J., Burkhardt, A. M., Vankayalapati, V., &amp; McCarthy, M. C. (2021). Machine learning of interstellar chemical inventories. <em>Astrophysical Journal Letters</em>, 917(1), L6. [4]</li>
+</ul></li>
+</ul>
+</section>
+<section id="stellar-feedback" class="level3">
+<h3 class="anchored" data-anchor-id="stellar-feedback">5. Stellar Feedback</h3>
+<ul>
+<li><strong>Simulation and Modeling</strong>: DL accelerates simulations of stellar feedback processes, such as supernova explosions and stellar winds, by learning from high-resolution simulations and predicting outcomes for new scenarios.
+<ul>
+<li><strong>Reference</strong>: Surana, S., Wadadekar, Y., Bait, O., &amp; Bhosale, H. (2020). Predicting star formation properties of galaxies using deep learning. <em>Monthly Notices of the Royal Astronomical Society</em>, 493(4), 4808-4815. [2]</li>
+</ul></li>
+<li><strong>Impact Analysis</strong>: ML techniques assess the impact of stellar feedback on surrounding ISM and star formation by analyzing observational data and simulation outputs.
+<ul>
+<li><strong>Reference</strong>: Surana, S., Wadadekar, Y., Bait, O., &amp; Bhosale, H. (2020). Predicting star formation properties of galaxies using deep learning. <em>Monthly Notices of the Royal Astronomical Society</em>, 493(4), 4808-4815. [2]</li>
+</ul></li>
+</ul>
+</section>
+<section id="galaxy-formation" class="level3">
+<h3 class="anchored" data-anchor-id="galaxy-formation">6. Galaxy Formation</h3>
+<ul>
+<li><strong>Morphological Classification</strong>: CNNs classify galaxies based on their shapes and structures from large-scale survey images, aiding in the study of galaxy formation and evolution.
+<ul>
+<li><strong>Reference</strong>: Bonjean, V., Aghanim, N., Salomé, P., Beelen, A., Douspis, M., &amp; Soubrié, E. (2019). Star formation rates and stellar masses from machine learning. <em>Astronomy &amp; Astrophysics</em>, 621, A51. [5]</li>
+</ul></li>
+<li><strong>Merger Detection</strong>: ML algorithms detect galaxy mergers and interactions in observational data and simulations, which are crucial for understanding galaxy formation processes.
+<ul>
+<li><strong>Reference</strong>: Bonjean, V., Aghanim, N., Salomé, P., Beelen, A., Douspis, M., &amp; Soubrié, E. (2019). Star formation rates and stellar masses from machine learning. <em>Astronomy &amp; Astrophysics</em>, 621, A51. [5]</li>
+</ul></li>
+<li><strong>Predictive Modeling</strong>: DL models predict the future evolution of galaxies based on current observations and simulations, helping to test theories of galaxy formation.
+<ul>
+<li><strong>Reference</strong>: Bonjean, V., Aghanim, N., Salomé, P., Beelen, A., Douspis, M., &amp; Soubrié, E. (2019). Star formation rates and stellar masses from machine learning. <em>Astronomy &amp; Astrophysics</em>, 621, A51. [5]</li>
+</ul></li>
+</ul>
 
-    
-  
-    
-  </div>
-  
 
-
-</header>
-
-
-<p>This is a Quarto website.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

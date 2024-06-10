@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>basic-DL - test_gh_action</title>
+<title>basic-DL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -101,6 +67,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -127,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./DL-intro.html"> 
+    <a class="nav-link active" href="./DL-intro.html" aria-current="page"> 
 <span class="menu-text">DL-Intro</span></a>
   </li>  
   <li class="nav-item">
@@ -158,39 +153,132 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#machine-learning-ml" id="toc-machine-learning-ml" class="nav-link active" data-scroll-target="#machine-learning-ml">Machine learning (ML)</a>
+  <ul class="collapse">
+  <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning">Supervised Learning</a></li>
+  <li><a href="#unsupervised-learning" id="toc-unsupervised-learning" class="nav-link" data-scroll-target="#unsupervised-learning">Unsupervised Learning</a></li>
+  <li><a href="#reinforcement-learning" id="toc-reinforcement-learning" class="nav-link" data-scroll-target="#reinforcement-learning">Reinforcement Learning</a></li>
+  </ul></li>
+  <li><a href="#introduction-deep-learning-dl" id="toc-introduction-deep-learning-dl" class="nav-link" data-scroll-target="#introduction-deep-learning-dl">Introduction Deep learning (DL)</a>
+  <ul class="collapse">
+  <li><a href="#layers" id="toc-layers" class="nav-link" data-scroll-target="#layers">Layers</a></li>
+  <li><a href="#neurons-and-activation-functions" id="toc-neurons-and-activation-functions" class="nav-link" data-scroll-target="#neurons-and-activation-functions">Neurons and Activation Functions</a></li>
+  <li><a href="#training-neural-networks" id="toc-training-neural-networks" class="nav-link" data-scroll-target="#training-neural-networks">Training Neural Networks</a></li>
+  </ul></li>
+  <li><a href="#applications-of-deep-learning" id="toc-applications-of-deep-learning" class="nav-link" data-scroll-target="#applications-of-deep-learning">Applications of Deep Learning</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">test_gh_action</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
+<section id="machine-learning-ml" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-ml">Machine learning (ML)</h2>
+<p>Machine learning (ML) is a subset of artificial intelligence (AI) that enables machines to learn from experience and act automatically. ML algorithms can be broadly classified into three categories: supervised learning, unsupervised learning, and reinforcement learning.</p>
+<section id="supervised-learning" class="level3">
+<h3 class="anchored" data-anchor-id="supervised-learning">Supervised Learning</h3>
+<p>Supervised learning involves training ML algorithms on labeled datasets where both input and output parameters are known. The goal is to develop a regression or classification model that can be used on new datasets to generate predictions or draw conclusions. Supervised learning algorithms learn to map input features to output labels, allowing them to make predictions or classifications on new, unseen data.</p>
+<p>Examples of supervised learning algorithms include:</p>
+<ol type="1">
+<li><strong>Linear Regression</strong>: A simple algorithm used to map the linear relationship between input features and a continuous target variable.</li>
+<li><strong>Logistic Regression</strong>: An extension of linear regression used for classification tasks to estimate the likelihood that an instance belongs to a specific class.</li>
+<li><strong>Support Vector Machines (SVMs)</strong>: Supervised learning algorithms that can perform classification and regression tasks by finding a hyperplane that best separates classes in feature space.</li>
+<li><strong>K-Nearest Neighbors (KNN)</strong>: A non-parametric technique used for classification as well as regression by identifying the k most similar data points to a new data point and predicting the label of the new data point using the labels of those data points.</li>
+<li><strong>Decision Trees</strong>: A type of supervised learning technique used for classification as well as regression by segmenting the data into smaller and smaller groups until each group can be classified or predicted with high degree of accuracy.</li>
+<li><strong>Random Forest</strong>: An ensemble learning method that employs a set of decision trees to make predictions by aggregating predictions from individual trees.</li>
+<li><strong>Naive Bayes</strong>: A probabilistic classifier based on Bayes’ theorem used for classification tasks by assuming that the features of a data point are independent of each other.</li>
+</ol>
+</section>
+<section id="unsupervised-learning" class="level3">
+<h3 class="anchored" data-anchor-id="unsupervised-learning">Unsupervised Learning</h3>
+<p>Unsupervised learning involves training ML algorithms on unlabeled datasets where the data has yet to be categorized or labeled. The ML system itself learns to classify and process unlabeled data to learn from its inherent structure.</p>
+<p>Examples of unsupervised learning algorithms include:</p>
+<ol type="1">
+<li><strong>Clustering Algorithms</strong>: Techniques used to group similar data points into clusters based on their features.</li>
+<li><strong>Association Rule Learning Algorithms</strong>: Methods used to discover patterns and relationships between variables in the data.</li>
+<li><strong>Principal Component Analysis (PCA)</strong>: A dimensionality reduction technique used to transform data into a lower-dimensional space while retaining as much variance as possible.</li>
+</ol>
+</section>
+<section id="reinforcement-learning" class="level3">
+<h3 class="anchored" data-anchor-id="reinforcement-learning">Reinforcement Learning</h3>
+<p>Reinforcement learning involves training ML algorithms through ongoing interactions between an AI system and its environment. Algorithms receive numerical scores as rewards for generating decisions and outcomes, reinforcing positive interactions and behaviors over time.</p>
+<p>Examples of reinforcement learning algorithms include:</p>
+<ol type="1">
+<li><strong>Markov Decision Processes (MDPs)</strong>: Model-based methods used to solve sequential decision-making problems.</li>
+<li><strong>Q-Learning</strong>: A model-free method used to learn the value function of an action in a given state.</li>
+<li><strong>SARSA</strong>: Another model-free method used to learn the value function of an action in a given state.</li>
+<li><strong>REINFORCE Algorithm</strong>: A policy-based method used to learn the policy of an agent in a given environment.</li>
+<li><strong>Actor-Critic Algorithm</strong>: A hybrid method used to learn both the policy and the value function of an agent in a given environment.</li>
+</ol>
+</section>
+</section>
+<section id="introduction-deep-learning-dl" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-deep-learning-dl">Introduction Deep learning (DL)</h2>
+<p>Deep learning (DL) is a powerful subset of machine learning techniques that are inspired by the structure and function of the brain’s neural networks. At the core of deep learning are artificial neural networks (ANNs), which are computational models composed of interconnected nodes called neurons. These neurons are organized into layers, allowing the network to learn hierarchical representations of data through a process called training.</p>
+<p>ANNs are the fundamental building blocks of deep learning models. They consist of the following key components:</p>
+<section id="layers" class="level3">
+<h3 class="anchored" data-anchor-id="layers">Layers</h3>
+<ul>
+<li><strong>Input Layer</strong>: This layer receives the input data, such as an image or a text sequence.</li>
+<li><strong>Hidden Layers</strong>: These are the intermediate layers that transform the input data into increasingly abstract representations. The depth of a neural network refers to the number of hidden layers it has.</li>
+<li><strong>Output Layer</strong>: This layer produces the final output, such as a classification or a prediction.</li>
+</ul>
+</section>
+<section id="neurons-and-activation-functions" class="level3">
+<h3 class="anchored" data-anchor-id="neurons-and-activation-functions">Neurons and Activation Functions</h3>
+<p>Each layer in an ANN is composed of neurons, which are the basic computational units. Neurons receive input from the previous layer, perform a weighted sum of these inputs, and apply an activation function to produce an output that is passed to the next layer.</p>
+<p>Common activation functions include:</p>
+<ul>
+<li><strong>Sigmoid</strong>: <span class="math display">\[\sigma(x) = \frac{1}{1 + e^{-x}}\]</span> [1]</li>
+<li><strong>Rectified Linear Unit (ReLU)</strong>: <span class="math display">\[f(x) = \max(0, x)\]</span> [1]</li>
+<li><strong>Hyperbolic Tangent (Tanh)</strong>: <span class="math display">\[\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}\]</span> [1]</li>
+</ul>
+</section>
+<section id="training-neural-networks" class="level3">
+<h3 class="anchored" data-anchor-id="training-neural-networks">Training Neural Networks</h3>
+<p>Training an ANN involves the following key processes:</p>
+<ol type="1">
+<li><strong>Forward Propagation</strong>: Input data is passed through the network, and the output is computed.</li>
+<li><strong>Loss Function</strong>: A loss function measures the difference between the predicted output and the true target value. Common loss functions include Mean Squared Error (MSE) for regression tasks and Cross-Entropy Loss for classification tasks.</li>
+<li><strong>Backpropagation</strong>: The gradients of the loss function with respect to the weights are computed using the chain rule of calculus. This process is called backpropagation.</li>
+<li><strong>Optimization</strong>: The weights of the network are updated using an optimization algorithm, such as Gradient Descent, to minimize the loss function. Popular variants of Gradient Descent include Stochastic Gradient Descent (SGD), Mini-batch Gradient Descent, Adam, and RMSprop.</li>
+</ol>
+</section>
+</section>
+<section id="applications-of-deep-learning" class="level2">
+<h2 class="anchored" data-anchor-id="applications-of-deep-learning">Applications of Deep Learning</h2>
+<p>Deep learning has revolutionized various fields by providing state-of-the-art performance in numerous applications, including:</p>
+<ul>
+<li><strong>Computer Vision</strong>: Image classification, object detection, image segmentation (e.g., using Convolutional Neural Networks (CNNs)).</li>
+<li><strong>Natural Language Processing (NLP)</strong>: Language translation, sentiment analysis, text generation (e.g., using Recurrent Neural Networks (RNNs) and Transformers).</li>
+<li><strong>Speech Recognition</strong>: Voice assistants, automated transcription.</li>
+<li><strong>Healthcare</strong>: Disease diagnosis from medical images, personalized treatment recommendations.</li>
+<li><strong>Autonomous Vehicles</strong>: Perception and decision-making systems.</li>
+<li><strong>Astrophysics</strong>: Classifying celestial objects, detecting exoplanets, analyzing the interstellar medium.</li>
+</ul>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<ol type="1">
+<li>Springer, “Deep Learning: A Comprehensive Overview on Techniques and Applications” (2021)</li>
+<li>Biostrand AI, “AI, ML, DL, and NLP: An Overview” (2022)</li>
+<li>NCBI, “Introduction to Machine Learning, Neural Networks, and Deep Learning” (2020)</li>
+<li>Clive Maxfield, “What the FAQ are AI, ANNs, ML, DL, and DNNs?” (n.d.)</li>
+<li>DataCamp, “Introduction to Deep Neural Networks” (n.d.)</li>
+</ol>
 
-    
-  
-    
-  </div>
-  
 
-
-</header>
-
-
-<p>This is a Quarto website.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
