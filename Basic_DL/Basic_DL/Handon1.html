@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index1.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -145,6 +145,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../tensor_playground.html"> 
 <span class="menu-text">Playground</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Handon1.html"> 
+<span class="menu-text">Hand on 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Handon2.html"> 
+<span class="menu-text">Hand on 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Handon3.html"> 
+<span class="menu-text">Hand on 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Handon4.html"> 
+<span class="menu-text">Hand on 4</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -170,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><strong>Import Libraries:</strong> First, we need to import the necessary libraries.</li>
 </ol>
-<div id="13ed21bd" class="cell" data-execution_count="1">
+<div id="0fd71327" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Step 1: Import Libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
@@ -182,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="2" type="1">
 <li><strong>Create Synthetic Data:</strong> Generate some synthetic data that represents a complex function. For this example, we’ll use a sine wave with added noise.</li>
 </ol>
-<div id="6c65812f" class="cell" data-execution_count="2">
+<div id="85dead8d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Step 2: Create Synthetic Data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate synthetic data</span></span>
@@ -194,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>x_tensor <span class="op">=</span> torch.tensor(x, dtype<span class="op">=</span>torch.float32).view(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>y_tensor <span class="op">=</span> torch.tensor(y, dtype<span class="op">=</span>torch.float32).view(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a5817d57" class="cell" data-execution_count="3">
+<div id="d0dff400" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -207,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="3" type="1">
 <li><strong>Define the Neural Network:</strong> Create a neural network with three hidden layers.</li>
 </ol>
-<div id="846e516c" class="cell" data-execution_count="4">
+<div id="d3906d6a" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Step 3: Define the Neural Network</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>relu<span class="op">=</span><span class="va">True</span> <span class="co">#none-linear activation function</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#relu=False #none-linear activation function</span></span>
@@ -240,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="4" type="1">
 <li><strong>Define Loss and Optimizer:</strong> Choose a loss function and an optimizer.</li>
 </ol>
-<div id="cd6dbe90" class="cell" data-execution_count="5">
+<div id="5b327e3e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Step 4: Define Loss and Optimizer</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>criterion <span class="op">=</span> nn.MSELoss() <span class="co">#Mean Square Error(MSE) or L2 loss</span></span>
@@ -251,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="5" type="1">
 <li><strong>Train the Model:</strong> Train the neural network on the synthetic data.</li>
 </ol>
-<div id="f002888c" class="cell" data-execution_count="6">
+<div id="ffe9733d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Step 5: Train the Model</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>num_epochs <span class="op">=</span> <span class="dv">1000</span></span>
@@ -270,19 +286,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    losses.append(loss.item())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Epoch [100/1000], Loss: 0.0544
-Epoch [200/1000], Loss: 0.0118
-Epoch [300/1000], Loss: 0.0097
-Epoch [400/1000], Loss: 0.0098
-Epoch [500/1000], Loss: 0.0092
-Epoch [600/1000], Loss: 0.0091
-Epoch [700/1000], Loss: 0.0099
-Epoch [800/1000], Loss: 0.0095
-Epoch [900/1000], Loss: 0.0091
-Epoch [1000/1000], Loss: 0.0095</code></pre>
+<pre><code>Epoch [100/1000], Loss: 0.0852
+Epoch [200/1000], Loss: 0.0212
+Epoch [300/1000], Loss: 0.0133
+Epoch [400/1000], Loss: 0.0102
+Epoch [500/1000], Loss: 0.0104
+Epoch [600/1000], Loss: 0.0095
+Epoch [700/1000], Loss: 0.0093
+Epoch [800/1000], Loss: 0.0093
+Epoch [900/1000], Loss: 0.0092
+Epoch [1000/1000], Loss: 0.0092</code></pre>
 </div>
 </div>
-<div id="0c48e094" class="cell" data-execution_count="7">
+<div id="3009f20e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the training loss</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.plot(losses)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Epoch'</span>)</span>
@@ -300,7 +316,7 @@ Epoch [1000/1000], Loss: 0.0095</code></pre>
 <ol start="6" type="1">
 <li><strong>Evaluate the Model:</strong> Evaluate the model’s performance.</li>
 </ol>
-<div id="b2be2d46" class="cell" data-execution_count="8">
+<div id="c80a08ee" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Step 6: Evaluate the Model</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">eval</span>()</span>
