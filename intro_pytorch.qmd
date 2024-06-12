@@ -6,7 +6,7 @@ Neural networks are computational models inspired by the human brain. They consi
 2.  **Loss Calculation**: The output is compared with the actual target to compute the loss.
 3.  **Backpropagation**: The network adjusts the weights to minimize the loss.
 
-![](images/Screenshot from 2024-06-07 13-04-39.png)
+![](images/Screenshot%20from%202024-06-07%2013-04-39.png)
 
 ### Layers in a Neural Network
 
@@ -20,13 +20,15 @@ A neural network typically has:
 
 Activation functions introduce non-linearity into the network, allowing it to learn complex patterns. Common activation functions include:
 
--   **ReLU (Rectified Linear Unit)**: ( f(x) = \max(0, x) )
--   **Sigmoid**: ( f(x) = \frac{1}{1 + e^{-x}} )
--   **Tanh**: ( f(x) = \tanh(x) )
+-   **ReLU (Rectified Linear Unit)**: $$f(x) = \max(0, x) $$
+-   **Sigmoid**: $$\displaystyle f(x) = \frac{1}{1 + e^{-x}}$$
+-   **Tanh**: $$ f(x) = \tanh(x) $$
 
 ### Forward Propagation
 
-During forward propagation, inputs pass through each layer and activation function to produce the final output.
+During forward propagation, inputs pass through each layer and activation function to produce the final output. Example of Using the Sigmoid Activation Function: $$\displaystyle f(x) = \frac{1}{1 + e^{-(w*x+b)}}$$
+
+where: $w$ is the weight and $b$ is the bias.
 
 ### Loss Function
 
@@ -41,32 +43,16 @@ Backpropagation updates the weights using the gradients of the loss function wit
 
 ## Introduction to Neural Networks with PyTorch
 
+![](images/Screenshot 2024-06-11 at 14.45.12-01.png)
+
 PyTorch is a popular open-source deep learning framework that offers a flexible and efficient platform for building and training neural networks. This guide introduces the basic concepts of neural networks, including forward propagation, different layers, activation functions, backpropagation, and loss functions, and demonstrates how to implement these concepts using PyTorch.
 
 ``` python
-### Step 1: Import Libraries
-import torch
-import torch.nn as nn
-import torch.optim as optim
-import numpy as np
-import matplotlib.pyplot as plt
-
-### Step 2: Create Synthetic Data
-
-# Generate synthetic data
-np.random.seed(42)
-x = np.linspace(-2 * np.pi, 2 * np.pi, 1000)
-y = np.sin(x) + 0.1 * np.random.normal(size=x.shape)
-
-# Convert to PyTorch tensors
-x_tensor = torch.tensor(x, dtype=torch.float32).view(-1, 1)
-y_tensor = torch.tensor(y, dtype=torch.float32).view(-1, 1)
-
-### Step 3: Define the Neural Network
+### Define the Neural Network
 class NeuralNetwork(nn.Module):
     def __init__(self):
         super(NeuralNetwork, self).__init__()
-        self.layer1 = nn.Linear(1, 64)
+        self.layer1 = nn.Linear(2, 64)
         self.layer2 = nn.Linear(64, 128)
         self.layer3 = nn.Linear(128, 64)
         self.layer4 = nn.Linear(64, 1)
@@ -82,17 +68,16 @@ class NeuralNetwork(nn.Module):
 # Instantiate the model
 model = NeuralNetwork()
 
-### Step 4: Define Loss and Optimizer
+### Define Loss and Optimizer
 
 criterion = nn.MSELoss() #Mean Square Error(MSE) or L2 loss
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 #Adam (Adaptive Moment Estimation) optimizer computes adaptive learning rates for each parameter.
 #lr=0.001: This sets the learning rate for the optimizer
 
-### Step 5: Train the Model
+### Train the Model
 
 num_epochs = 1000
-losses = []
 
 for epoch in range(num_epochs):
     model.train() #Sets the model to training mode
@@ -102,27 +87,9 @@ for epoch in range(num_epochs):
     loss.backward()  #Computes gradients of the loss with respect to the model parameters (backpropagation).
     optimizer.step() #Updates the model parameters using the computed gradients to minimize the loss.
 
-    if (epoch+1) % 100 == 0:
-        print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
-
-    losses.append(loss.item())
-    
-# Plot the training loss
-plt.plot(losses)
-plt.xlabel('Epoch')
-plt.ylabel('Loss')
-plt.title('Training Loss')
-plt.show()    
-
-### Step 6: Evaluate the Model
+### Evaluate the Model
 
 model.eval()
 with torch.no_grad():
     predicted = model(x_tensor).numpy()
-
-# Plot the results
-plt.plot(x, y, label='Original Data')
-plt.plot(x, predicted, label='Fitted Data')
-plt.legend()
-plt.show()
 ```

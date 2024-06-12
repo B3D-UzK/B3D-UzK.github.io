@@ -1,5 +1,6 @@
+[**Google colab - Hand on 3**](https://colab.research.google.com/drive/17ZDG4tE9Vk5Mriq6ItRUp4LSsRVYUxqo?usp=sharing)
 
-```{python}
+``` python
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -7,14 +8,9 @@ from sklearn.datasets import make_moons
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import warnings
-
-# Suppress all RuntimeWarnings
-warnings.filterwarnings('ignore', category=RuntimeWarning)
 ```
 
-
-
-```{python}
+``` python
 # Generate the dataset
 X, y = make_moons(n_samples=1000, noise=0.03, random_state=42)
 
@@ -28,53 +24,53 @@ y_train = torch.tensor(y_train, dtype=torch.float32).unsqueeze(1)  # Change to (
 y_test = torch.tensor(y_test, dtype=torch.float32).unsqueeze(1)  # Change to (N, 1)
 ```
 
-
-
-
-```{python}
-# Define the neural network model
+``` python
+#- Define the neural network model
 class MoonModel(nn.Module):
     def __init__(self):
         super(MoonModel, self).__init__()
-        self.layer_1 = nn.Linear(2, 10)
-        self.layer_2 = nn.Linear(10, 10)
-        self.layer_3 = nn.Linear(10, 10)
-        self.output = nn.Linear(10, 1)  # Single output neuron
+        # Define neral network layers:
+        #TODO
 
+
+    # Define forward propagation function
     def forward(self, x):
-        x = torch.relu(self.layer_1(x))
-        x = torch.relu(self.layer_2(x))
-        x = torch.relu(self.layer_3(x))
-        x = self.output(x)
-        return x
+        #TODO
+
 
 model = MoonModel()
 ```
 
-
-
-
-```{python}
+``` python
 # Define the loss function and the optimizer
-criterion = nn.BCEWithLogitsLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+criterion = #TODO
+optimizer = #TODO
 ```
 
-
-
-
-```{python}
-# Train the model
-epochs = 1000
+``` python
+#- Train the model
+epochs =  #TODO # Set the number of epochs
 losses = []
 
 for epoch in range(epochs):
-    model.train()
-    optimizer.zero_grad()
-    outputs = model(X_train)
-    loss = criterion(outputs, y_train)
-    loss.backward()
-    optimizer.step()
+
+    # Set model into  training mode
+      #TODO
+
+    # Clear loss gradients from the previous epoch
+      #TODO
+
+    # Get outputs from the current model and training data
+      #TODO
+
+    # Estimate loss
+      #TODO
+
+    # Calculate loss gradient
+      #TODO
+
+    # Update model parameteres using the computed loss gradient
+      #TODO
 
     if (epoch+1) % 100 == 0:
         print(f'Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}')
@@ -82,10 +78,7 @@ for epoch in range(epochs):
     losses.append(loss.item())
 ```
 
-
-
-
-```{python}
+``` python
 # Plot the training loss
 plt.plot(losses)
 plt.xlabel('Epoch')
@@ -94,10 +87,7 @@ plt.title('Training Loss')
 plt.show()
 ```
 
-
-
-
-```{python}
+``` python
 model.eval()
 with torch.no_grad():
     train_outputs = model(X_train)
@@ -129,9 +119,7 @@ plt.ylabel('Feature 2')
 plt.show()
 ```
 
-
-
-```{python}
+``` python
 # Function 1: plot decision boundary
 import numpy as np
 def plot_decision_boundary(model: torch.nn.Module, X: torch.Tensor, y: torch.Tensor):
@@ -191,9 +179,7 @@ def plot_predictions(train_data, train_labels, test_data, test_labels, predictio
     plt.show()
 ```
 
-
-
-```{python}
+``` python
 # Plot decision boundaries for training and test sets
 plt.figure(figsize=(6, 6))
 plt.title("Train")

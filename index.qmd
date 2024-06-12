@@ -16,12 +16,12 @@ Our deep learning workshop includes core concepts with hands-on PyTorch experien
 |               | ML and DL applied in Astrophysics                           |
 |               | Q&A                                                         |
 | 13:50 - 14:00 | Coffee break                                                |
-| 14:00 - 14:30 | Intro: Layers, Activations, Backpropagation, Loss & PyTorch |
+| 14:00 - 14:30 | Intro: Layers, Activations, Backpropagation, Loss           |
 | 14:30 - 15:20 | What is the neural network and how it learns                |
+|               | Deep Learning with Pytorch and Tensor Playground            |
 | 15:20 - 15:25 | Summary: General structure of constructing a model using DL |
-| 15:25 - 11:40 | Q&A                                                         |
-| 15:40 - 15:55 | Playing with a simple exercise                              |
+| 15:25 - 15:40 | Q&A                                                         |
+| 15:40 - 15:55 | Playing with Tensor Playground                              |
 | 15:55 - 16:00 | Q&A                                                         |
-| 16:00 - 16:15 | Playing with Tensor Playground                              |
-| 16:15 - 16:30 | Coffee break                                                |
-| 16:30 - 17:30 | Hands-on session                                            |
+| 16:00 - 16:15 | Coffee break                                                |
+| 16:15 - 17:30 | Hands-on session                                            |

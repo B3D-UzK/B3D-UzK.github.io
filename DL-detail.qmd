@@ -26,12 +26,11 @@ In deep learning, initializing weights and biases appropriately is crucial for t
 
 Setting a random seed with `np.random.seed(1)` in NumPy is crucial for:
 
-1. **Reproducibility**: Ensures the same random numbers are generated every time, enabling debugging and result verification.
+1.  **Reproducibility**: Ensures the same random numbers are generated every time, enabling debugging and result verification.
 
-2. **Consistency**: Provides consistent initialization of neural network weights and biases, leading to consistent training outcomes.
+2.  **Consistency**: Provides consistent initialization of neural network weights and biases, leading to consistent training outcomes.
 
-3. **Collaboration**: Allows others to replicate experiments and achieve the same initial conditions, facilitating collaboration and reproducibility.
-
+3.  **Collaboration**: Allows others to replicate experiments and achieve the same initial conditions, facilitating collaboration and reproducibility.
 
 ![](images/Screenshot%20from%202024-06-05%2013-02-19.png)
 
@@ -138,8 +137,8 @@ def backward_pass(X, Y, Z1, A1, Z2, A2, Z3, A3, W1, W2, W3):
     
     return dW1, db1, dW2, db2, dW3, db3
 ```
-# 5. Update the parameters
 
+# 5. Update the parameters
 
 ``` python
 # Update the parameters
@@ -165,6 +164,7 @@ def update_parameters(W1, b1, W2, b2, W3, b3, dW1, db1, dW2, db2, dW3, db3, lear
 -   p nodes = hidden_size2 = 4
 
 -   q nodes = output_size =1
+
 ``` python
 input_size = 2
 hidden_size1 = 6
@@ -193,7 +193,6 @@ dW1, db1, dW2, db2, dW3, db3 = backward_pass(X, Y, Z1, A1, Z2, A2, Z3, A3, W1, W
 W1, b1, W2, b2, W3, b3 = update_parameters(W1, b1, W2, b2, W3, b3, dW1, db1, dW2, db2, dW3, db3, learning_rate)
 ```
 
-
 # Loss Function and Optimization
 
 In machine learning, the loss function (or cost function) measures how well the model's predictions match the actual target values. The goal of training a neural network is to minimize this loss function.
@@ -202,24 +201,20 @@ In deep learning, a loss function (or cost function) is a method to evaluate how
 
 ## Common Loss Functions
 
-1. **Mean Squared Error Loss (MSELoss)**:
-   - Used for regression tasks.
-   - Measures the average squared difference between the predicted and actual values.
-
-2. **Cross-Entropy Loss (CrossEntropyLoss)**:
-   - Used for classification tasks.
-   - Combines `LogSoftmax` and `NLLLoss` in one single class.
-
-3. **Binary Cross-Entropy Loss (BCELoss)**:
-   - Used for binary classification tasks.
-   - Measures the binary cross-entropy between the target and the output.
-
-4. **Negative Log-Likelihood Loss (NLLLoss)**:
-   - Used for classification tasks.
-   - Often used with `LogSoftmax`.
-
-5. **Hinge Embedding Loss (HingeEmbeddingLoss)**:
-   - Used for binary classification tasks where the output is either 1 or -1.
+1.  **Mean Squared Error Loss (MSELoss)**:
+    -   Used for regression tasks.
+    -   Measures the average squared difference between the predicted and actual values.
+2.  **Cross-Entropy Loss (CrossEntropyLoss)**:
+    -   Used for classification tasks.
+    -   Combines `LogSoftmax` and `NLLLoss` in one single class.
+3.  **Binary Cross-Entropy Loss (BCELoss)**:
+    -   Used for binary classification tasks.
+    -   Measures the binary cross-entropy between the target and the output.
+4.  **Negative Log-Likelihood Loss (NLLLoss)**:
+    -   Used for classification tasks.
+    -   Often used with `LogSoftmax`.
+5.  **Hinge Embedding Loss (HingeEmbeddingLoss)**:
+    -   Used for binary classification tasks where the output is either 1 or -1.
 
 ## Local Minimum vs. Global Minimum
 
@@ -268,5 +263,3 @@ The Adam (Adaptive Moment Estimation) optimizer is an advanced optimization algo
 6.  **Fine-tune and Deploy**
     -   Fine-tune the model by adjusting hyperparameters, adding regularization, or using more advanced architectures.
     -   Once satisfied with the performance, deploy the model for inference on new data.
-
-

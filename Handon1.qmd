@@ -1,12 +1,8 @@
+[**Google colab - Hand on 1**](https://colab.research.google.com/drive/1dBAJIj7b9OTsrYizAsetouuweawdJG_q?usp=sharing)
 
-The process of creating a neural network using PyTorch with three hidden layers to fit a complex function.
-We'll use a synthetic dataset for demonstration purposes.
-Here's a step-by-step approach:
+1.  **Import Libraries:** First, we need to import the necessary libraries.
 
-1. **Import Libraries:**
-   First, we need to import the necessary libraries.
-   
-```{python}
+``` python
 ### Step 1: Import Libraries
 
 import torch
@@ -16,12 +12,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
+2.  **Create Synthetic Data:** Generate some synthetic data that represents a complex function. For this example, we'll use a sine wave with added noise.
 
-2. **Create Synthetic Data:**
-   Generate some synthetic data that represents a complex function. For this example, we'll use a sine wave with added noise.
-
-
-```{python}
+``` python
 ### Step 2: Create Synthetic Data
 
 # Generate synthetic data
@@ -34,18 +27,13 @@ x_tensor = torch.tensor(x, dtype=torch.float32).view(-1, 1)
 y_tensor = torch.tensor(y, dtype=torch.float32).view(-1, 1)
 ```
 
-
-
-```{python}
+``` python
 plt.plot(x,y)
 ```
 
-3. **Define the Neural Network:**
-   Create a neural network with three hidden layers.
+3.  **Define the Neural Network:** Create a neural network with three hidden layers.
 
-
-
-```{python}
+``` python
 ### Step 3: Define the Neural Network
 relu=True #none-linear activation function
 #relu=False #none-linear activation function
@@ -74,14 +62,11 @@ class NeuralNetwork(nn.Module):
         return x
 
 model = NeuralNetwork()
-
 ```
 
-4. **Define Loss and Optimizer:**
-   Choose a loss function and an optimizer.
+4.  **Define Loss and Optimizer:** Choose a loss function and an optimizer.
 
-
-```{python}
+``` python
 ### Step 4: Define Loss and Optimizer
 
 criterion = nn.MSELoss() #Mean Square Error(MSE) or L2 loss
@@ -90,13 +75,9 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 #lr=0.001: This sets the learning rate for the optimizer
 ```
 
-5. **Train the Model:**
-   Train the neural network on the synthetic data.
+5.  **Train the Model:** Train the neural network on the synthetic data.
 
-
-
-
-```{python}
+``` python
 ### Step 5: Train the Model
 
 num_epochs = 1000
@@ -116,9 +97,7 @@ for epoch in range(num_epochs):
     losses.append(loss.item())
 ```
 
-
-
-```{python}
+``` python
 # Plot the training loss
 plt.plot(losses)
 plt.xlabel('Epoch')
@@ -127,11 +106,9 @@ plt.title('Training Loss')
 plt.show()
 ```
 
+6.  **Evaluate the Model:** Evaluate the model's performance.
 
-6. **Evaluate the Model:**
-   Evaluate the model's performance.
-
-```{python}
+``` python
 ### Step 6: Evaluate the Model
 
 model.eval()
@@ -144,6 +121,3 @@ plt.plot(x, predicted, label='Fitted Data')
 plt.legend()
 plt.show()
 ```
-
-
-

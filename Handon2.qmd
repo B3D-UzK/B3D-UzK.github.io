@@ -1,14 +1,6 @@
-We’ll create a neural network with three hidden layers to fit the data. Here’s the step-by-step approach:
+[**Google colab - Hand on 2**](https://colab.research.google.com/drive/1ySqp3dDlbV9jtGPoUwDSfRHRZcfsmAYo?usp=sharing)
 
-	1.	Import Libraries
-	2.	Create the Dataset
-	3.	Define the Neural Network
-	4.	Define Loss and Optimizer
-	5.	Train the Model
-	6.	Evaluate the Model
-	
-	
-```{python}
+``` python
 # Step 1: Import Libraries
 
 import torch
@@ -21,8 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 ```
 
-
-```{python}
+``` python
 # Step 2: Create the Dataset
 
 # Generate synthetic data
@@ -40,7 +31,7 @@ y_tensor = torch.tensor(y, dtype=torch.float32).view(-1, 1)
 X_train, X_test, y_train, y_test = train_test_split(X_tensor, y_tensor, test_size=0.2, random_state=42)
 ```
 
-```{python}
+``` python
 # Visualize with a plot
 import matplotlib.pyplot as plt
 plt.scatter(x=X[:, 0],
@@ -48,7 +39,6 @@ plt.scatter(x=X[:, 0],
             c=y,
             cmap=plt.cm.RdYlBu);
 ```
-
 
 ## The architecture of the neural network
 
@@ -64,32 +54,30 @@ The output size of 1 is determined by the task we're trying to solve, which is a
 
 Here's a brief breakdown of the network layers:
 
-1. **Input Layer**: `self.layer1 = nn.Linear(2, 64)`
-   - Takes 2 input features (the 2D coordinates).
-   - Outputs 64 features.
-   - Activation function: ReLU (`self.relu`).
-
-2. **First Hidden Layer**: `self.layer2 = nn.Linear(64, 128)`
-   - Takes the 64 features from the previous layer.
-   - Outputs 128 features.
-   - Activation function: ReLU.
-
-3. **Second Hidden Layer**: `self.layer3 = nn.Linear(128, 64)`
-   - Takes the 128 features from the previous layer.
-   - Outputs 64 features.
-   - Activation function: ReLU.
-
-4. **Output Layer**: `self.layer4 = nn.Linear(64, 1)`
-   - Takes the 64 features from the previous layer.
-   - Outputs a single feature, representing the predicted probability of the input belonging to class 1.
+1.  **Input Layer**: `self.layer1 = nn.Linear(2, 64)`
+    -   Takes 2 input features (the 2D coordinates).
+    -   Outputs 64 features.
+    -   Activation function: ReLU (`self.relu`).
+2.  **First Hidden Layer**: `self.layer2 = nn.Linear(64, 128)`
+    -   Takes the 64 features from the previous layer.
+    -   Outputs 128 features.
+    -   Activation function: ReLU.
+3.  **Second Hidden Layer**: `self.layer3 = nn.Linear(128, 64)`
+    -   Takes the 128 features from the previous layer.
+    -   Outputs 64 features.
+    -   Activation function: ReLU.
+4.  **Output Layer**: `self.layer4 = nn.Linear(64, 1)`
+    -   Takes the 64 features from the previous layer.
+    -   Outputs a single feature, representing the predicted probability of the input belonging to class 1.
 
 ### Activation Function: ReLU
 
 The ReLU (Rectified Linear Unit) activation function is applied after each hidden layer to introduce non-linearity into the model, allowing it to learn more complex patterns.
 
-```{python}
-# Step 3: Define the Neural Network
+![](images/Screenshot%202024-06-11%20at%2014.45.12.png)
 
+``` python
+# Step 3: Define the Neural Network
 class NeuralNetwork(nn.Module):
     def __init__(self):
         super(NeuralNetwork, self).__init__()
@@ -107,29 +95,23 @@ class NeuralNetwork(nn.Module):
         return x
 
 model = NeuralNetwork()
-
 ```
 
-
-```{python}
+``` python
 
 # Step 4: Define Loss and Optimizer
 
 criterion = nn.BCEWithLogitsLoss()
 #BCEWithLogitsLoss: Binary Cross Entropy with Logits Loss which is suitable for binary classification tasks
-	#•	Binary Cross Entropy (BCE) Loss: Measures the difference between true labels and predicted probabilities.
-	#•	With Logits: Expects raw output (logits) from the model, not probabilities. Internally applies the sigmoid function to logits before computing the loss.
+    #•  Binary Cross Entropy (BCE) Loss: Measures the difference between true labels and predicted probabilities.
+    #•  With Logits: Expects raw output (logits) from the model, not probabilities. Internally applies the sigmoid function to logits before computing the loss.
 
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 #Adam (Adaptive Moment Estimation) optimizer computes adaptive learning rates for each parameter.
 #lr=0.001: This sets the learning rate for the optimizer
 ```
 
-
-
-
-
-```{python}
+``` python
 # Step 5: Train the Model
 
 num_epochs = 1000
@@ -149,8 +131,7 @@ for epoch in range(num_epochs):
     losses.append(loss.item())
 ```
 
-
-```{python}
+``` python
 # Plot the training loss
 plt.plot(losses)
 plt.xlabel('Epoch')
@@ -159,9 +140,7 @@ plt.title('Training Loss')
 plt.show()
 ```
 
-
-
-```{python}
+``` python
 model.eval()
 with torch.no_grad():
     train_outputs = model(X_train)
@@ -193,8 +172,7 @@ plt.ylabel('Feature 2')
 plt.show()
 ```
 
-
-```{python}
+``` python
 # Function 1: plot decision boundary
 
 def plot_decision_boundary(model: torch.nn.Module, X: torch.Tensor, y: torch.Tensor):
@@ -254,8 +232,7 @@ def plot_predictions(train_data, train_labels, test_data, test_labels, predictio
     plt.show()
 ```
 
-
-```{python}
+``` python
 # Plot decision boundaries for training and test sets
 plt.figure(figsize=(6, 6))
 plt.title("Train")

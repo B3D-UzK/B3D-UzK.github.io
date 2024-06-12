@@ -9,22 +9,19 @@ website:
         text: Home
       - href: DL-intro.qmd
         text: DL-Intro
-      - href: about.qmd
-        text: Aplications        
-      - href: intro_pytorch.qmd
-        text: Intro Pytorch
-      - href: DL-detail.qmd
-        text: DL-detail        
       - href: tensor_playground.qmd
         text: Playground
+      - href: DL-detail.qmd
+        text: DL-Numpy       
+      - href: intro_pytorch.qmd
+        text: Intro Pytorch
       - href: Handon1.qmd
         text: Hand on 1
       - href: Handon2.qmd
         text: Hand on 2
       - href: Handon3.qmd
         text: Hand on 3        
-      - href: Handon4.qmd
-        text: Hand on 4      
+ 
 
 format:
   html:
