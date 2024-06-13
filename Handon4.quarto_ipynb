@@ -1,0 +1,227 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "$$W^{L}=W^{L} - \\alpha * dW^{L} $$\n",
+        "$$b^{L}=b^{L} - \\alpha * db^{L}$$\n",
+        "$$W^{1}=W^{1} - \\alpha * dW^{1} $$\n",
+        "$$b^{1}=b^{1} - \\alpha * db^{1}$$\n",
+        "\n",
+        "$$W^{2}=W^{2} - \\alpha * dW^{2} $$\n",
+        "\n",
+        "$$b^{2}=b^{2} - \\alpha * db^{2}$$\n"
+      ],
+      "id": "7b1fa360"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import torch\n",
+        "import torch.nn as nn\n",
+        "import torch.optim as optim\n",
+        "import torchvision\n",
+        "import torchvision.transforms as transforms\n",
+        "import matplotlib.pyplot as plt\n",
+        "import numpy as np"
+      ],
+      "id": "3939affe",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Define a transform to normalize the data\n",
+        "transform = transforms.Compose([\n",
+        "    transforms.ToTensor(),\n",
+        "    transforms.Normalize((0.5,), (0.5,))\n",
+        "])\n",
+        "\n",
+        "# Load the training and test datasets\n",
+        "trainset = torchvision.datasets.MNIST(root='./data', train=True, download=True, transform=transform)\n",
+        "trainloader = torch.utils.data.DataLoader(trainset, batch_size=64, shuffle=True)\n",
+        "\n",
+        "testset = torchvision.datasets.MNIST(root='./data', train=False, download=True, transform=transform)\n",
+        "testloader = torch.utils.data.DataLoader(testset, batch_size=64, shuffle=False)\n"
+      ],
+      "id": "4a2b639f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def imshow(img):\n",
+        "    img = img / 2 + 0.5  # Unnormalize\n",
+        "    npimg = img.numpy()\n",
+        "    plt.imshow(np.transpose(npimg, (1, 2, 0)))\n",
+        "\n",
+        "# Get some random training images\n",
+        "dataiter = iter(trainloader)\n",
+        "images, labels = next(dataiter)\n",
+        "\n",
+        "# Plot 20 images in a 4x5 grid\n",
+        "fig, axes = plt.subplots(nrows=4, ncols=5, figsize=(10, 10))\n",
+        "axes = axes.flatten()\n",
+        "\n",
+        "for idx, ax in enumerate(axes):\n",
+        "    if idx < len(images):\n",
+        "        ax.imshow(images[idx].numpy().squeeze(), cmap='gray')\n",
+        "        ax.set_title(f'Label: {labels[idx].item()}')\n",
+        "        ax.axis('off')\n",
+        "    else:\n",
+        "        ax.axis('off')\n",
+        "\n",
+        "plt.tight_layout()\n",
+        "plt.show()"
+      ],
+      "id": "ab615c5c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Define the Neural Network\n",
+        "class Net(nn.Module):\n",
+        "    def __init__(self):\n",
+        "        super(Net, self).__init__()\n",
+        "        self.fc1 = nn.Linear(28*28, 512)\n",
+        "        self.fc2 = nn.Linear(512, 256)\n",
+        "        self.fc3 = nn.Linear(256, 128)\n",
+        "        self.fc4 = nn.Linear(128, 10)\n",
+        "\n",
+        "    def forward(self, x):\n",
+        "        x = x.view(-1, 28*28)  # Flatten the image\n",
+        "        x = torch.relu(self.fc1(x))\n",
+        "        x = torch.relu(self.fc2(x))\n",
+        "        x = torch.relu(self.fc3(x))\n",
+        "        x = self.fc4(x)\n",
+        "        return x\n",
+        "\n",
+        "net = Net()"
+      ],
+      "id": "b8046f98",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Define the Loss Function and Optimizer\n",
+        "criterion = nn.CrossEntropyLoss()\n",
+        "optimizer = optim.Adam(net.parameters(), lr=0.001)"
+      ],
+      "id": "9bff8752",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Lists to keep track of losses\n",
+        "train_losses = []\n",
+        "test_losses = []\n",
+        "\n",
+        "for epoch in range(10):  # Loop over the dataset multiple times\n",
+        "    running_loss = 0.0\n",
+        "    net.train()  # Set the network to training mode\n",
+        "    for i, data in enumerate(trainloader, 0):\n",
+        "        inputs, labels = data\n",
+        "\n",
+        "        # Zero the parameter gradients\n",
+        "        optimizer.zero_grad()\n",
+        "\n",
+        "        # Forward pass\n",
+        "        outputs = net(inputs)\n",
+        "        loss = criterion(outputs, labels)\n",
+        "\n",
+        "        # Backward pass and optimize\n",
+        "        loss.backward()\n",
+        "        optimizer.step()\n",
+        "\n",
+        "        # Print statistics\n",
+        "        running_loss += loss.item()\n",
+        "        if i % 100 == 99:    # Print every 100 mini-batches\n",
+        "            print(f'[Epoch {epoch + 1}, Batch {i + 1}] loss: {running_loss / 100:.3f}')\n",
+        "            running_loss = 0.0\n",
+        "\n",
+        "    # Track training loss\n",
+        "    train_losses.append(loss.item())\n",
+        "\n",
+        "    # Track test loss\n",
+        "    net.eval()  # Set the network to evaluation mode\n",
+        "    test_loss = 0.0\n",
+        "    with torch.no_grad():\n",
+        "        for data in testloader:\n",
+        "            images, labels = data\n",
+        "            outputs = net(images)\n",
+        "            loss = criterion(outputs, labels)\n",
+        "            test_loss += loss.item()\n",
+        "    test_losses.append(test_loss / len(testloader))\n",
+        "\n",
+        "print('Finished Training')"
+      ],
+      "id": "a6781fbb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Plot the training and test losses\n",
+        "plt.figure(figsize=(10, 5))\n",
+        "plt.plot(train_losses, label='Training Loss')\n",
+        "plt.plot(test_losses, label='Test Loss')\n",
+        "plt.xlabel('Epoch')\n",
+        "plt.ylabel('Loss')\n",
+        "plt.title('Training and Test Loss')\n",
+        "plt.legend()\n",
+        "plt.show()"
+      ],
+      "id": "62e47847",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Test the Network\n",
+        "correct = 0\n",
+        "total = 0\n",
+        "with torch.no_grad():\n",
+        "    for data in testloader:\n",
+        "        images, labels = data\n",
+        "        outputs = net(images)\n",
+        "        _, predicted = torch.max(outputs.data, 1)\n",
+        "        total += labels.size(0)\n",
+        "        correct += (predicted == labels).sum().item()\n",
+        "\n",
+        "print(f'Accuracy of the network on the 10000 test images: {100 * correct / total:.2f}%')"
+      ],
+      "id": "d93ba711",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/Users/ngo/Library/Python/3.12/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

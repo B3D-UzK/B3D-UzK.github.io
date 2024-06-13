@@ -43,7 +43,7 @@ Backpropagation updates the weights using the gradients of the loss function wit
 
 ## Introduction to Neural Networks with PyTorch
 
-![](images/Screenshot 2024-06-11 at 14.45.12-01.png)
+![](images/Screenshot%202024-06-11%20at%2014.45.12-01.png)
 
 PyTorch is a popular open-source deep learning framework that offers a flexible and efficient platform for building and training neural networks. This guide introduces the basic concepts of neural networks, including forward propagation, different layers, activation functions, backpropagation, and loss functions, and demonstrates how to implement these concepts using PyTorch.
 
